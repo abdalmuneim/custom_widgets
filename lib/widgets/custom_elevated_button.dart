@@ -30,25 +30,25 @@ class CustomElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: Theme.of(context).elevatedButtonTheme.style!.copyWith(
-            padding: MaterialStateProperty.all(padding),
-            elevation: MaterialStateProperty.all(elevation),
-            maximumSize: MaterialStateProperty.all(maximumSize),
-            minimumSize: MaterialStateProperty.all(minimumSize),
-            backgroundColor: MaterialStateProperty.all(
-              color,
-            ),
-            shape: isCircle ?? false
-                ? MaterialStateProperty.all<CircleBorder>(
-                    CircleBorder(side: side ?? BorderSide.none),
-                  )
-                : MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: borderRadius ??
-                            BorderRadius.circular(radius ?? 100),
-                        side: side ?? BorderSide.none),
-                  ),
-          ),
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(padding),
+        elevation: MaterialStateProperty.all(elevation),
+        maximumSize: MaterialStateProperty.all(maximumSize),
+        minimumSize: MaterialStateProperty.all(minimumSize),
+        backgroundColor: MaterialStateProperty.all(
+          color,
+        ),
+        shape: isCircle ?? false
+            ? MaterialStateProperty.all<CircleBorder>(
+                CircleBorder(side: side ?? BorderSide.none),
+              )
+            : MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius:
+                        borderRadius ?? BorderRadius.circular(radius ?? 100),
+                    side: side ?? BorderSide.none),
+              ),
+      ),
       onPressed: onPressed,
       child: child,
     );

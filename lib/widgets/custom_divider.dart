@@ -8,25 +8,26 @@ class CustomDivider extends StatelessWidget {
     this.width,
     this.color,
     this.margin,
+    this.thickness = .8,
   });
   final EdgeInsetsGeometry? margin;
   final bool? isHor;
   final double? height;
-  final double? width;
+  final double? width, thickness;
   final Color? color;
   @override
   Widget build(BuildContext context) {
     return isHor!
         ? Container(
-            margin: margin ?? const EdgeInsets.symmetric(horizontal: 6),
-            width: width ?? 100,
-            height: .5,
+            margin: margin,
+            width: width ?? MediaQuery.of(context).size.width,
+            height: thickness,
             color: color ?? const Color(0xFF797979),
           )
         : Container(
-            margin: margin ?? const EdgeInsets.symmetric(horizontal: 4),
-            width: .5,
-            height: height ?? 100,
+            margin: margin,
+            width: thickness,
+            height: height ?? MediaQuery.of(context).size.width,
             color: color ?? const Color(0xFF797979),
           );
   }

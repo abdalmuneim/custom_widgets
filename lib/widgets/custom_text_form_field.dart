@@ -50,6 +50,7 @@ class CustomTextFormField extends StatefulWidget {
     this.labelTextSize,
     this.disabledBorder,
     this.enabledBorder,
+    this.hintStyle,
     this.inputBorder,
   });
   final int? maxLines, minLines;
@@ -67,7 +68,7 @@ class CustomTextFormField extends StatefulWidget {
   final double radius;
   final BorderRadius? borderRadius;
   final InputBorder? inputBorder, enabledBorder, disabledBorder;
-
+  final TextStyle? hintStyle;
   final TextEditingController? controller;
   final TextDirection? textDirection;
   final TextInputType? keyboardType;
@@ -101,7 +102,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       children: [
         if (widget.labelText != null) ...[
           SizedBox(
-            width: 100,
+            width: MediaQuery.of(context).size.width,
             child: CustomText(
               textAlign: widget.labelAlign,
               fontSize: widget.labelTextSize ?? 12,
@@ -158,6 +159,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               contentPadding: widget.contentPadding ??
                   Theme.of(context).inputDecorationTheme.contentPadding,
               hintText: widget.hintText,
+              hintStyle: widget.hintStyle ??
+                  Theme.of(context).inputDecorationTheme.hintStyle,
               filled: true,
               fillColor: widget.fillColor ??
                   Theme.of(context).inputDecorationTheme.fillColor,

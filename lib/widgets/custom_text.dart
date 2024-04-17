@@ -39,7 +39,7 @@ class CustomText extends StatelessWidget {
       text,
       style: style ??
           Theme.of(context).textTheme.labelMedium!.copyWith(
-                fontSize: fontSize ?? 16,
+                fontSize: fontSize ?? 18,
                 fontFamily: fontFamily,
                 color: color,
                 fontWeight: fontWeight,
