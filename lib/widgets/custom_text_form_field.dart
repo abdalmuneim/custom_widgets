@@ -1,5 +1,5 @@
-import 'package:custom_widgets/widgets/custom_text.dart';
-import 'package:custom_widgets/widgets/extension.dart';
+import 'package:custom_widgets_2/widgets/custom_text.dart';
+import 'package:custom_widgets_2/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

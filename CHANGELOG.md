@@ -1,3 +1,3 @@
-## 0.0.1
+## Version 0.0.1 (2024-04-21)
 
-* TODO: Describe initial release.
+- First added.

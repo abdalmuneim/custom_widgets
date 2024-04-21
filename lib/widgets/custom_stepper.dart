@@ -1,4 +1,4 @@
-import 'package:custom_widgets/custom_widgets.dart';
+import 'package:custom_widgets_2/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
 class CustomStepper extends StatelessWidget {

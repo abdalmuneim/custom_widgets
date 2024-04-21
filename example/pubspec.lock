@@ -97,7 +97,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  custom_widgets:
+  custom_widgets_2:
     dependency: "direct main"
     description:
       path: ".."
