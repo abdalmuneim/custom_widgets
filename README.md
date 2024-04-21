@@ -55,7 +55,3 @@ Contributions to this package are welcome! If you encounter any issues or have s
 
 ## License
 This package is licensed under the [GNU GENERAL PUBLIC LICENSE](https://github.com/abdalmuneim/custom_widgets_2/blob/main/LICENSE).
-
-```vbnet
-Replace abdalmuneim with your GitHub username if you plan to host the package's source code on GitHub. Save this content as README.md in the root directory of your package. It will serve as the documentation for your custom_widgets_2 package on pub.dev.
-```
