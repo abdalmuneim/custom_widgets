@@ -1,3 +1,4 @@
+import 'package:custom_widgets/custom_widgets.dart';
 import 'package:custom_widgets/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -54,48 +55,66 @@ class CustomDropDownButton<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField<T>(
-      validator: validator,
-      icon: icon ??
-          Icon(
-            Icons.arrow_drop_down,
-            color: iconColor,
-          ),
-      value: newValue,
-      dropdownColor: dropdownColor ?? Theme.of(context).cardTheme.color,
-      items: items
-          ?.map(
-            (e) => DropdownMenuItem<T>(
-              value: e,
-              child: CustomText(
-                text: e.toString(),
-                fontSize: 13,
-                color: itemColor ?? const Color(0xFFeeeeee),
-                fontWeight: FontWeight.w800,
-              ),
+    return Column(
+      children: [
+        if (labelText != null) ...[
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: CustomText(
+              textAlign: labelAlign,
+              text: labelText!,
+              color: labelColor,
             ),
-          )
-          .toList(),
-      onChanged: onChanged,
-      isDense: true,
-      style: Theme.of(context).textTheme.titleLarge!.copyWith(),
-      decoration: InputDecoration(
-        contentPadding:
-            contentPadding ?? const EdgeInsets.symmetric(horizontal: 10),
-        hintText: hintText,
-        hintStyle: hintStyle,
-        fillColor: fillColor,
-        filled: true,
-        enabledBorder: enabledBorder ??
-            Theme.of(context)
-                .dropdownMenuTheme
-                .inputDecorationTheme
-                ?.enabledBorder,
-        disabledBorder: disabledBorder ??
-            Theme.of(context).inputDecorationTheme.disabledBorder,
-        border: inputBorder ??
-            Theme.of(context).dropdownMenuTheme.inputDecorationTheme?.border,
-      ),
+          ),
+          2.sh,
+        ],
+        DropdownButtonFormField<T>(
+          validator: validator,
+          icon: icon ??
+              Icon(
+                Icons.arrow_drop_down,
+                color: iconColor,
+              ),
+          value: newValue,
+          dropdownColor: dropdownColor ?? Theme.of(context).cardTheme.color,
+          items: items
+              ?.map(
+                (e) => DropdownMenuItem<T>(
+                  value: e,
+                  child: CustomText(
+                    text: e.toString(),
+                    fontSize: 13,
+                    color: itemColor ?? const Color(0xFFeeeeee),
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              )
+              .toList(),
+          onChanged: onChanged,
+          isDense: true,
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+          decoration: InputDecoration(
+            contentPadding:
+                contentPadding ?? const EdgeInsets.symmetric(horizontal: 10),
+            hintText: hintText,
+            hintStyle: hintStyle,
+            fillColor: fillColor,
+            filled: true,
+            enabledBorder: enabledBorder ??
+                Theme.of(context)
+                    .dropdownMenuTheme
+                    .inputDecorationTheme
+                    ?.enabledBorder,
+            disabledBorder: disabledBorder ??
+                Theme.of(context).inputDecorationTheme.disabledBorder,
+            border: inputBorder ??
+                Theme.of(context)
+                    .dropdownMenuTheme
+                    .inputDecorationTheme
+                    ?.border,
+          ),
+        ),
+      ],
     );
   }
 }

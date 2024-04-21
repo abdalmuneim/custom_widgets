@@ -11,11 +11,18 @@ class CustomStepper extends StatelessWidget {
   final Color? notActiveColor, activeColor;
   final bool? enableLine;
   final bool? shrinkWrap;
-
+  final String? labelText;
+  final double? labelTextSize;
+  final TextAlign? labelAlign;
+  final Color? lableColor;
   const CustomStepper({
     super.key,
     required this.currentStep,
     this.padding,
+    this.labelAlign,
+    this.labelTextSize,
+    this.lableColor,
+    this.labelText,
     this.size,
     required this.steps,
     this.stepsDetails,
@@ -28,52 +35,71 @@ class CustomStepper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: shrinkWrap ?? true,
-      physics: const BouncingScrollPhysics(),
-      scrollDirection: direction ?? Axis.horizontal,
-      itemCount: steps.length,
-      itemBuilder: (context, index) => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                  width: size,
-                  height: size,
-                  alignment: Alignment.center,
-                  padding: padding ??
-                      const EdgeInsets.symmetric(
-                          horizontal: 2.8, vertical: 2.8),
-                  decoration: BoxDecoration(
-                      color:
-                          currentStep >= index ? activeColor : notActiveColor,
-                      shape: BoxShape.circle),
-                  child: Center(child: steps[index])),
-              if (enableLine ?? true) ...[
-                if (steps.length - 1 != index)
-                  SizedBox(
-                    width: steps.length + 20,
-                    child: Divider(
-                      thickness: 6,
-                      color: currentStep - 1 >= index
-                          ? activeColor
-                          : notActiveColor,
-                    ),
-                  ),
-              ] else ...[
-                (steps.length + 15).sw,
-              ]
-            ],
+    return Column(
+      children: [
+        if (labelText != null) ...[
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: CustomText(
+              textAlign: labelAlign,
+              fontSize: labelTextSize ?? 16,
+              text: labelText!,
+              color: lableColor,
+            ),
           ),
-          if (stepsDetails != null) ...[
-            stepsDetails![index],
-          ]
+          2.sh,
         ],
-      ),
+        Expanded(
+          child: ListView.builder(
+            shrinkWrap: shrinkWrap ?? true,
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: direction ?? Axis.horizontal,
+            itemCount: steps.length,
+            itemBuilder: (context, index) => Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                        width: size,
+                        height: size,
+                        alignment: Alignment.center,
+                        padding: padding ??
+                            const EdgeInsets.symmetric(
+                                horizontal: 2.8, vertical: 2.8),
+                        decoration: BoxDecoration(
+                            color: currentStep >= index
+                                ? activeColor
+                                : notActiveColor,
+                            shape: BoxShape.circle),
+                        child: Center(child: steps[index])),
+                    if (enableLine ?? true) ...[
+                      if (steps.length - 1 != index)
+                        SizedBox(
+                          width: steps.length + 20,
+                          child: Divider(
+                            thickness: 6,
+                            color: currentStep - 1 >= index
+                                ? activeColor
+                                : notActiveColor,
+                          ),
+                        ),
+                    ] else ...[
+                      (steps.length + 15).sw,
+                    ]
+                  ],
+                ),
+                if (stepsDetails != null) ...[
+                  stepsDetails![index],
+                ]
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
