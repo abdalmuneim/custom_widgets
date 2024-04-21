@@ -1,6 +1,6 @@
 name: custom_widgets_2
 description: This package contains some widgets that are indispensable in any project and are intended for ease of handling.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/abdalmuneim/custom_widgets_2.git
 
 environment:
