@@ -1,39 +1,61 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# custom_widgets
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+[![pub package](https://img.shields.io/pub/v/custom_widgets.svg)](https://pub.dev/packages/custom_widgets)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+This package contains a collection of custom widgets that are indispensable in any Flutter project. These widgets are designed to provide ease of handling and enhance the user experience.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Widgets Included
 
-## Features
+- **CustomElevatedButton**: A customizable button widget with various styling options.
+- **CustomTextField**: A custom text field widget with additional features such as validation and input formatting.
+- **CustomText**: A custom Text widget with text.
+- **CustomDropDownButton**: A custom drop down button widget for multi drop down items.
+- **CustomSteper**: A custom steper widget for steps.
+- **CustomCachNetwork**: A custom cach network widget for display network imge.
+- **CustomDivider**: A custom divider widget for display divider.
+- **ContainerSadow**: A container shadow widget for display container with shadow.
+- **sh**: A sh widget for sized box with height.
+- **sw**: A sw widget for sized box with width.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Installation
 
-## Getting started
+Add the following line to your `pubspec.yaml` file:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+dependencies:
+  custom_widgets: <last version>
+```
+Replace `last version` with the latest version of the package available on [pub.dev](https://pub.dev/).
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+Run the following command to install the package:
 ```dart
-const like = 'sample';
+flutter pub get
 ```
 
-## Additional information
+## Usage
+Import the package in your Dart code:
+```dart
+import 'package:custom_widgets/custom_widgets.dart';
+```
+Now, you can use the custom widgets in your Flutter app. Here's an example of how to use the `CustomElevatedButton` widget:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+CustomElevatedButton(
+  onPressed: () {
+    // Add your button click logic here
+  },
+  child: CustomText(text:"click me"),
+  color: Colors.blue,
+),
+```
+Refer to the documentation of each widget for detailed usage instructions and customization options.
+
+## Contributing
+Contributions to this package are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on GitHub.
+
+## License
+This package is licensed under the [GNU GENERAL PUBLIC LICENSE](https://github.com/abdalmuneim/custom_widgets/blob/main/LICENSE).
+
+```vbnet
+Replace abdalmuneim with your GitHub username if you plan to host the package's source code on GitHub. Save this content as README.md in the root directory of your package. It will serve as the documentation for your custom_widgets package on pub.dev.
+```
